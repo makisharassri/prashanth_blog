@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Twitter</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="container">
+<ul class="nav nav-pills">
+  <li role="presentation" class="active"><a href="#">Home</a></li>
+  <li role="presentation"><a href="#">Profile</a></li>
+  <li role="presentation"> <%if user_signed_in?%>
+  <%=link_to 'Signout','/users/sign_out',:method=>:delete%>
+  <%else%>
+  <%=link_to 'Login','/users/sign_in'%>
+  <%end%></li>
+  <p>First project using Ruby on Rails</p>
+ 
+</ul>
+<%= yield %>
+</div>
+</html>
